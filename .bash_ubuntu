@@ -1,0 +1,12 @@
+# source configs
+src()
+{
+  source ~/.bash_global && source ~/.bash_ubuntu
+}
+
+alias instl="sudo apt-get -y install"
+alias update="sudo apt-get update && sudo apt-get -y upgrade"
+uninstl() {
+  sudo apt-get purge "$1"
+  sudo apt-get autoremove
+}
