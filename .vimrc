@@ -33,6 +33,9 @@ set hidden
 " Better command-line completion
 set wildmenu
 
+" Make vsplit put new buffer on the right
+set splitright
+
 " Show partial commands in the last line of the screen
 set showcmd
 
