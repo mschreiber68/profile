@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+function spaces {
+        for i in $(seq $1); do
+                printf ' '
+        done
+}
+
+indent=0
+start='true'
+outside_quotes='true'
+while IFS= read -r -n1 char; do
+        if [[ $char == ',' ]]; then
+                printf ",\n"
+                spaces $indent
+        elif [[ $char == '{' || $char == '[' ]]; then
+                if [[ $start == 'false' ]]; then printf "\n"; else start='false'; fi
+                spaces $indent; printf $char
+                let indent=indent+2
+                printf "\n"; spaces $indent
+        elif [[ $char == '}' || $char == ']' ]]; then
+                let indent=indent-2
+                printf "\n"; spaces $indent; printf $char;
+        elif [[ $char == '"' ]]; then
+                [[ $outside_quotes == 'true' ]] \
+                        && outside_quotes='false' \
+                        || outside_quotes='true'
+        elif  { echo $char | grep --quiet "[[:space:]]"; } then
+                if [[ $outside_quotes == 'true' ]]; then
+                        continue;
+                fi
+        else
+                printf "$char"
+        fi
+done
+printf "\n";

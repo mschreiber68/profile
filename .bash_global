@@ -11,6 +11,8 @@ export PS2='>'
 
 export EDITOR='vim'
 
+export PATH="$PATH:~/profile/bin"
+
 # enable extended globs
 shopt -s extglob
 

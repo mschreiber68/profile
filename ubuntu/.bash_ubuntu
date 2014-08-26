@@ -1,12 +1,24 @@
 # source configs
-src()
-{
+src() {
   source ~/.bash_global && source ~/.bash_ubuntu
+}
+
+ubconf() {
+  vim -c 'set syntax=sh' ~/.bash_ubuntu
 }
 
 alias instl="sudo apt-get -y install"
 alias update="sudo apt-get update && sudo apt-get -y upgrade"
 uninstl() {
-  sudo apt-get purge "$1"
-  sudo apt-get autoremove
+  sudo apt-get -y purge "$1"
+  sudo apt-get -y autoremove
+}
+search() {
+  apt-cache search "$1" | less
+}
+
+
+# describe OS
+os() { 
+  lsb_release -a 2>/dev/null | grep 'Description' | cut -f2-; uname -m; 
 }
