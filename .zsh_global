@@ -1,0 +1,34 @@
+################
+#  NOTES
+################
+
+# put this in fstab for mybook:
+#//192.168.2.101/Public /home/mike/mybooklive cifs username=guest,password="" 0 0
+
+export PS2='>'
+export EDITOR='vim'
+export PATH="$PATH:~/profile/bin"
+
+shconf() {
+  vim -c 'set syntax=sh' ~/.zsh_global 
+}
+
+#############################
+
+# make things use color
+alias l='ls -lah --color=always'
+alias la='ls -lAh --color=always'
+alias ll='ls -lh --color=always'
+alias ls='ls -G --color=always'
+alias lsa='ls -lah --color=always'
+alias grep="grep --color=always"
+alias less="less -r"
+
+alias tmux='tmux -2'
+
+# make dir and cd into it
+mcd() { mkdir "$1" && cd "$1"; }
+
+alias lsmount="mount | column -t"    # nicely print mounted filesystems
+alias myip="curl ifconfig.me"        # get external IP
+
