@@ -4,12 +4,12 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 # source configs
 src()
 {
-  source ~/.bash_global && source ~/.bash_mac
+  source ~/.zsh_global && source ~/.zsh_mac
 }
 
 # edit this file
 macconf() 
 {
-  vim -c 'set syntax=sh' ~/.bash_mac
+  vim ~/.zsh_mac
 }
 

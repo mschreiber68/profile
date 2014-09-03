@@ -75,4 +75,8 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 source ~/.zsh_global
-source ~/.zsh_mac
+if uname -a | grep -q Darwin; then
+  source ~/.zsh_mac
+elif uname -a | grep -q buntu; then
+  source ~/.zsh_ubuntu
+fi
