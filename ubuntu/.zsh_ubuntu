@@ -1,0 +1,24 @@
+# source configs
+src() {
+  source ~/.zsh_global && source ~/.zsh_ubuntu
+}
+
+ubconf() {
+  vim ~/.zsh_ubuntu
+}
+
+alias instl="sudo apt-get -y install"
+alias update="sudo apt-get update && sudo apt-get -y upgrade"
+uninstl() {
+  sudo apt-get -y purge "$1"
+  sudo apt-get -y autoremove
+}
+search() {
+  apt-cache search "$1" | less
+}
+
+
+# describe OS
+os() { 
+  lsb_release -a 2>/dev/null | grep 'Description' | cut -f2-; uname -m; 
+}
