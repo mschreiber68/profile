@@ -37,3 +37,10 @@ mcd() { mkdir "$1" && cd "$1"; }
 alias lsmount="mount | column -t"    # nicely print mounted filesystems
 alias myip="curl ifconfig.me"        # get external IP
 
+# list git aliases
+alias gitalias="alias | grep git | less"
+
+# show function source
+alias lsfn="whence -f"
+# list functions
+lsfns() { print -l ${(ok)functions}; }
