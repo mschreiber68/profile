@@ -3,3 +3,5 @@
 	email = mschreiber@ballytech.com
 [color]
 	ui = auto
+[push]
+	default = simple
