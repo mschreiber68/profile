@@ -1,4 +1,3 @@
-
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
@@ -162,5 +161,12 @@ set sidescrolloff=5           " keep at least 5 lines left/righ
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
+
+"------------------------------------------------------------
+" TEXT INSERTS
+"------------------------------------------------------------
+" PHP - type insert error_log with print_r
+:command El :normal oerror_log('1'.print_r(-,TRUE));jjF1
+
 
 
