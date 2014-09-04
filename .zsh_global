@@ -14,6 +14,9 @@ export PS2='>'
 export EDITOR='vim'
 export PATH="$PATH:~/profile/bin"
 
+src() {
+  source ~/.zshrc
+}
 shconf() {
   vim ~/.zsh_global 
 }

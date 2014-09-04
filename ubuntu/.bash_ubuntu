@@ -1,8 +1,3 @@
-# source configs
-src() {
-  source ~/.bash_global && source ~/.bash_ubuntu
-}
-
 ubconf() {
   vim -c 'set syntax=sh' ~/.bash_ubuntu
 }
