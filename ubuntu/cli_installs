@@ -8,4 +8,7 @@ htop
 cifs-utils
 build-essential
 valgrind
-
+python3
+ruby2.0
+zsh
+curl
