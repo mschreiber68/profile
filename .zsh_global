@@ -15,9 +15,6 @@ export EDITOR='vim'
 export PATH="$PATH:~/profile/bin"
 
 export LESS='-r'
-if [ -f ~/profile/bin/lessfilter.sh ]; then
-  export LESSOPEN='|~/profile/bin/lessfilter.sh %s'
-fi
 
 src() {
   source ~/.zshrc

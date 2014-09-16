@@ -2,6 +2,11 @@ ubconf() {
   vim ~/.zsh_ubuntu
 }
 
+# uses python-pygments package
+if [ -f ~/profile/bin/lessfilter.sh ]; then
+  export LESSOPEN='|~/profile/bin/lessfilter.sh %s'
+fi
+
 alias instl="sudo apt-get -y install"
 alias update="sudo apt-get update && sudo apt-get -y upgrade"
 uninstl() {
