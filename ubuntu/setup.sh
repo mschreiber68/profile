@@ -4,12 +4,6 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$DIR"
 
-# Use passwd file for commands requiring sudo
-if [ ! -r ./passwd ]; then
-  echo "ERROR: Put your password in a file called 'passwd' in this script dir!"
-  exit 1
-fi
-
 # arg must be 'cli' or 'gui'
 if [ "$1" == 'cli' ]; then
   APPS=$(cat cli_installs)
@@ -20,11 +14,14 @@ else
   exit 1
 fi
 
+sudo apt-get update && sudo apt-get upgrade
 for app in $APPS; do
-  sudo -S apt-get -y install "$app" < ./passwd
+  sudo apt-get -y install "$app"
 done
 
 
 # add pwfeedback to sudoers.d
-sudo -S bash -c 'echo "Defaults pwfeedback" > /etc/sudoers.d/pwfeedback' < ./passwd
-sudo -S chmod 0440 /etc/sudoers.d/pwfeedback < ./passwd
+if [ ! -f /etc/sudoers.d/pwfeedback ]; then
+  sudo bash -c 'echo "Defaults pwfeedback" > /etc/sudoers.d/pwfeedback'
+  sudo chmod 0440 /etc/sudoers.d/pwfeedback
+fi

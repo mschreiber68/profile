@@ -9,3 +9,7 @@ ranger
 tmux
 valgrind
 vim
+python3
+ruby2.0
+zsh
+curl

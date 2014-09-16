@@ -1,5 +1,5 @@
 # put GNU coreutils at front of path to use instead of BSD ones
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # edit this file
 macconf() 
