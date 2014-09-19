@@ -10,12 +10,13 @@ if [ "$1" == 'cli' ]; then
 elif [ "$1" == 'gui' ]; then
   APPS=$(cat cli_installs gui_installs | sed '/^$/d')
 else
-  echo "ERROR: First arg must be 'cli' or 'gui'"
+  >&2 echo "ERROR: First arg must be 'cli' or 'gui'"
   exit 1
 fi
 
 sudo apt-get update && sudo apt-get upgrade
 for app in $APPS; do
+  echo "INSTALLING $app..."
   sudo apt-get -y install "$app"
 done
 
