@@ -25,7 +25,11 @@ shconf() {
 
 push-profile() {
   cd ~/profile
-  git add . && git commit -m "$1" && git push
+  if git status | grep -q 'modified:'; then
+    git add . && git commit -m "$1" && git push
+  else
+    git push
+  fi
 }
 
 #############################
