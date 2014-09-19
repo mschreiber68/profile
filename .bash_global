@@ -23,6 +23,11 @@ shconf() {
   vim -c 'set syntax=sh' ~/.bash_global 
 }
 
+push-profile() {
+  cd ~/profile
+  git add . && git commit -m "$1" && git push
+}
+
 #############################
 
 # make things use color
