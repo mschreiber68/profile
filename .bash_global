@@ -16,11 +16,15 @@ export LESS='-r'
 shopt -s extglob
 
 src() {
-  source ~/.bashrc
+  source ~/.bash_global
 }
 
 shconf() {
   vim -c 'set syntax=sh' ~/.bash_global 
+}
+
+vimrc() {
+  vim ~/.vimrc
 }
 
 push-profile() {
@@ -78,14 +82,3 @@ colors() {
   echo 'To print colored data: ''\e[38;05;${number}m${data}\e[m'
 }
 
-update-hosts() {
-  _host="$1"
-  _newIp="$2"
-
-  # set value in hosts file
-  if grep -q "$_host" /etc/hosts; then
-    sudo sed -i 's/^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\(.*\)'" $_host "'/'"$_newIp "'\1'" $_host "'/' /etc/hosts
-  else
-    sudo sh -c "printf '%s %s\\n' $_newIp $_host >> /etc/hosts"
-  fi
-}
