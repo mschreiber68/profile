@@ -120,3 +120,5 @@ if uname -a | grep -q Darwin; then
 elif uname -a | grep -q buntu; then
   source ~/.bash_ubuntu
 fi
+
+export GOPATH=/home/mike/code/go
