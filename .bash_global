@@ -82,3 +82,4 @@ colors() {
   echo 'To print colored data: ''\e[38;05;${number}m${data}\e[m'
 }
 
+

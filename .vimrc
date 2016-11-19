@@ -2,13 +2,20 @@
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 
-
-" PATHOGEN
-execute pathogen#infect()
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'valloric/youcompleteme'
+Plugin 'pangloss/vim-javascript'
+call vundle#end()
 
 
 " Enable syntax highlighting
 syntax on
+
 
 au BufReadPost *.rkt,*.rktl set filetype=scheme
 au BufReadPost *.twig set filetype=html

@@ -1,7 +1,13 @@
 [user]
 	name = Mike Schreiber
-	email = mschreiber@ballytech.com
+	email = michaelschreiberdev@gmail.com
 [color]
 	ui = auto
 [push]
 	default = simple
+[alias]
+        co = checkout
+        cm = commit -m 
+        a = add -A 
+        s = status
+        r = remote -v
